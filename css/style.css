@@ -12,6 +12,7 @@ body {
 }
 
 /* PÁGINA 1 — ENVELOPE FECHADO */
+
 .pagina-envelope {
     min-height: 100vh;
     background: #f7f4ec;
@@ -25,7 +26,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Fundo horizontal para telas de computador: ocupa a tela sem deformar. */
     background-image: url("../imagens/fundo-envelope-desktop.png");
     background-size: cover;
     background-position: center;
@@ -48,7 +48,6 @@ body {
     position: absolute;
     top: 51%;
     left: 50%;
-    /* Selo maior, próximo da proporção visual do convite original. */
     width: min(30vw, 42vh, 430px);
     transform: translate(-50%, -50%);
     display: block;
@@ -82,6 +81,7 @@ body {
 }
 
 /* PÁGINA 2 — CONVITE ABERTO */
+
 .pagina-convite {
     min-height: 100vh;
     background: #f8f6ef;
@@ -100,7 +100,8 @@ body {
     background: #f8f6ef;
 }
 
-/* Uma única ilustração em cada lateral: sem os fragmentos centrais. */
+/* DECORAÇÃO LATERAL — COMPUTADOR */
+
 .convite-aberto::before,
 .convite-aberto::after {
     content: "";
@@ -211,6 +212,8 @@ body {
     margin: 3px 0 10px;
 }
 
+/* BOTÕES DO CONVITE */
+
 .atalhos-convite {
     display: flex;
     justify-content: center;
@@ -263,9 +266,12 @@ body {
     color: #fff;
 }
 
-/* AJUSTES PARA CELULARES — preserva o layout de computador */
+/* AJUSTES PARA CELULARES */
+
 @media (max-width: 600px) {
+
     /* CAPA / ENVELOPE */
+
     .pagina-envelope {
         min-height: 100svh;
         background: #f7f4ec;
@@ -301,112 +307,131 @@ body {
     }
 
     /* CONVITE ABERTO */
+
     .pagina-convite {
         min-height: 100svh;
     }
 
     .convite-aberto {
         min-height: 100svh;
-        padding: 16px 0;
+        padding: 22px 10px;
         align-items: center;
-    }
+        overflow: visible;
 
-    /* Laterais mobile: imagem recortada na área decorada, sem deformar. */
-    .convite-aberto::before,
-    .convite-aberto::after {
-        width: clamp(82px, 23vw, 108px);
-        background-image: url("../imagens/fundo-lateral-mobile.png");
+        /* Imagem completa, sem cortar as conchas */
+        background-image: url("../imagens/fundo-convite.png");
         background-size: 100% auto;
         background-position: center center;
         background-repeat: no-repeat;
-        opacity: 1;
     }
 
+    /* Desativa as laterais separadas usadas no computador */
+    .convite-aberto::before,
+    .convite-aberto::after {
+        display: none;
+    }
+
+    /* Conteúdo maior e melhor aproveitamento da tela */
+
     .conteudo-convite {
-        width: 54%;
-        max-width: 300px;
-        padding: 8px 0;
+        width: min(86%, 480px);
+        max-width: 480px;
+        padding: 12px 0;
         position: relative;
         z-index: 1;
     }
 
     .idade {
-        width: 125px;
-        height: 66px;
-        margin-bottom: 2px;
+        width: 135px;
+        height: 76px;
+        margin-bottom: 3px;
     }
 
     .idade-numero {
-        font-size: 59px;
+        font-size: 68px;
     }
 
     .idade-palavra {
-        top: 38px;
-        font-size: 21px;
+        top: 44px;
+        font-size: 23px;
     }
 
     .conteudo-convite h1 {
-        font-size: clamp(37px, 10.5vw, 43px);
+        font-size: clamp(42px, 11vw, 54px);
         line-height: 1.05;
-        margin: 4px 0 10px;
+        margin: 4px 0 12px;
     }
 
     .data-horario {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 1.3;
-        margin-bottom: 9px;
+        margin-bottom: 10px;
     }
 
     .data-linha {
-        gap: 6px;
+        gap: 7px;
     }
 
     .data-linha .dia {
-        font-size: 37px;
-        padding: 0 7px;
+        font-size: 42px;
+        padding: 0 8px;
     }
 
     .mensagem-convite {
-        font-size: 13px;
+        font-size: 15px;
         line-height: 1.3;
         margin-top: 8px;
     }
 
     .instrucao-convite {
-        font-size: 12px;
-        margin: 3px 0 8px;
+        font-size: 13px;
+        margin: 4px 0 10px;
     }
 
+    /* OS TRÊS BOTÕES FICAM SEMPRE NA MESMA LINHA */
+
     .atalhos-convite {
-        width: 100%;
-        gap: 4px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        max-width: 360px;
+        gap: clamp(5px, 2vw, 10px);
+        margin: 0 auto;
     }
 
     .atalho {
-        flex: 0 0 clamp(66px, 18vw, 74px);
-        width: clamp(66px, 18vw, 74px);
-        min-height: clamp(66px, 18vw, 74px);
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+        min-height: 0;
+        aspect-ratio: 1 / 1;
+
         border-width: 1.5px;
-        gap: 2px;
-        padding: 4px;
-        font-size: 8.5px;
+        gap: 3px;
+        padding: 5px 4px;
+
+        font-size: clamp(7.5px, 2.5vw, 10px);
         line-height: 1.1;
+        overflow-wrap: break-word;
     }
 
     .atalho-icone {
-        width: 29px;
-        height: 29px;
+        width: clamp(24px, 7vw, 32px);
+        height: clamp(24px, 7vw, 32px);
+        flex-shrink: 0;
     }
 
     .atalho-icone svg {
-        width: 25px;
-        height: 25px;
+        width: 100%;
+        height: 100%;
     }
 }
 
 /* PÁGINAS DE INFORMAÇÕES */
+
 .pagina-informacoes {
     min-height: 100vh;
     background: #f8f6ef;
@@ -451,7 +476,9 @@ body {
     padding: 0;
 }
 
-.painel-informacoes li { margin: 5px 0; }
+.painel-informacoes li {
+    margin: 5px 0;
+}
 
 .voltar-convite {
     display: inline-block;
@@ -469,8 +496,20 @@ body {
     border-color: #173d70;
 }
 
+/* AJUSTES DAS PÁGINAS DE INFORMAÇÕES NO CELULAR */
+
 @media (max-width: 600px) {
-    .pagina-informacoes { padding: 18px 10px; }
-    .painel-informacoes { padding: 30px 18px; }
-    .painel-informacoes p, .painel-informacoes li { font-size: 14px; }
+
+    .pagina-informacoes {
+        padding: 18px 10px;
+    }
+
+    .painel-informacoes {
+        padding: 30px 18px;
+    }
+
+    .painel-informacoes p,
+    .painel-informacoes li {
+        font-size: 14px;
+    }
 }
