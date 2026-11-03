@@ -311,17 +311,23 @@ body {
         align-items: center;
     }
 
-    /* Laterais mais estreitas para não ficarem atrás dos botões. */
+    /* Laterais mobile: imagem recortada na área decorada, sem deformar. */
     .convite-aberto::before,
     .convite-aberto::after {
-        width: clamp(48px, 14vw, 62px);
-        opacity: .88;
+        width: clamp(82px, 23vw, 108px);
+        background-image: url("../imagens/fundo-lateral-mobile.png");
+        background-size: 100% auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        opacity: 1;
     }
 
     .conteudo-convite {
-        width: 70%;
-        max-width: 280px;
+        width: 54%;
+        max-width: 300px;
         padding: 8px 0;
+        position: relative;
+        z-index: 1;
     }
 
     .idade {
@@ -467,23 +473,4 @@ body {
     .pagina-informacoes { padding: 18px 10px; }
     .painel-informacoes { padding: 30px 18px; }
     .painel-informacoes p, .painel-informacoes li { font-size: 14px; }
-}
-/* CORREÇÃO DAS CONCHAS NO CELULAR */
-@media (max-width: 600px) {
-
-    .convite-aberto::before,
-    .convite-aberto::after {
-        width: clamp(105px, 28vw, 135px);
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        opacity: 1;
-    }
-
-    .conteudo-convite {
-        width: 68%;
-        max-width: 280px;
-        position: relative;
-        z-index: 1;
-    }
-
 }

@@ -1,0 +1,16 @@
+PROJETO: CONVITE DIGITAL — ANA CLARA | 15 ANOS
+
+COMO ABRIR
+1. Extraia a pasta AniversarioAnaClara.
+2. Abra a pasta no Visual Studio Code.
+3. Abra o arquivo index.html no navegador.
+
+ARQUIVOS
+- index.html: envelope fechado e entrada do convite.
+- convite.html: convite aberto e botões de navegação.
+- manual.html: manual do convidado.
+- presentes.html: sugestões de presentes.
+- css/style.css: estilos de todas as páginas.
+- imagens/: imagens extraídas/preparadas para o convite.
+
+O projeto usa HTML5 e CSS3, sem JavaScript ou frameworks.
