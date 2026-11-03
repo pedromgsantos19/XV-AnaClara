@@ -513,3 +513,17 @@ body {
         font-size: 14px;
     }
 }
+/* MELHORA A LEITURA DOS BOTÕES NO CELULAR */
+
+@media (max-width: 600px) {
+    .atalho {
+        background-color: #f8f6ef;
+        box-shadow: 0 2px 8px rgba(23, 61, 112, 0.15);
+    }
+
+    .atalho:hover,
+    .atalho:focus-visible {
+        background-color: #17427c;
+        color: #ffffff;
+    }
+}
